@@ -13,3 +13,8 @@ after_success:
   - docer build -t aidandang/multi-nginx ./nginx
   - docer build -t aidandang/multi-server ./server
   - docer build -t aidandang/multi-worker ./worker
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push aidandang/multi-client
+  - docker push aidandang/multi-nginx
+  - docker push aidandang/multi-server
+  - docker push aidandang/multi-worker
