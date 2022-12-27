@@ -3,7 +3,7 @@ services:
   - docker
 
 before_install:
-  - docker build -b aidandang/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t aidandang/react-test -f ./client/Dockerfile.dev ./client
 
 script:
   - docker run -e CI=true aidandang/react-test npm run test
